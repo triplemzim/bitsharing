@@ -235,7 +235,7 @@ const TodoApp = () => {
 
   return (
     <div className="container mx-auto max-w-md p-4">
-      <h1 className="text-4xl text-white font-bold mb-4">Bit Sharing</h1>
+      <h1 className="text-4xl text-white text-center font-bold mb-4">Bit Sharing</h1>
       <div>
         <BitLoader code={code} setCode={setCode} loadBit={loadBit} />
       </div>
