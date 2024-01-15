@@ -32,7 +32,7 @@ function BitLoader({ code, setCode, loadBit }) {
 // A component to render a single todo item
 const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
   return (
-    <li className="flex items-center justify-between bg-gray-800 p-4 rounded-lg mb-2">
+    <li className="flex items-center justify-between bg-cyan-900 rounded-full pl-4 mb-2">
       <div className="flex items-center">
         <Checkbox
           // type="checkbox"
