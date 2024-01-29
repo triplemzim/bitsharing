@@ -23,7 +23,7 @@ function BitLoader({ code, setCode, loadBit }) {
         className="flex-1 bg-gray-800 p-2 rounded-lg mr-2 text-white outline-none"
       />
       <Button variant="secondary" onClick={loadBit}>
-        Find or Create
+        Find or Create new ToDo
       </Button>
     </div>
   );
@@ -41,7 +41,7 @@ const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
           className="h-5 w-5 mr-4 bg-neutral-400"
         />
         <span
-          className={`text-lg ${
+          className={`text-lg whitespace-normal break-words max-w-[300px] p-2 ${
             todo.marked ? "line-through text-gray-400" : "text-white"
           }`}
         >
@@ -235,11 +235,11 @@ const TodoApp = () => {
 
   return (
     <div className="container mx-auto max-w-md p-4">
-      <h1 className="text-4xl text-white text-center font-bold mb-4">Bit Sharing</h1>
+      <h1 className="text-4xl text-white text-center font-bold mb-2">Bit Sharing</h1>
+      <p className="text-sm text-center text-gray-50 mb-2">by triplemzim</p>
       <div>
         <BitLoader code={code} setCode={setCode} loadBit={loadBit} />
       </div>
-      (
       {!util.isNullOrUndefined(bit.id) && (
         <div>
           <div className="mb-4">
@@ -270,14 +270,14 @@ const TodoApp = () => {
             </Button>
           </form>
           <ul>
-            {content.map((todo) => (
+            {content.map((todo) => 
               <TodoItem
                 key={todo.id}
                 todo={todo}
                 toggleCompleted={toggleCompleted}
                 deleteTodo={deleteTodo}
               />
-            ))}
+            )}
           </ul>
           {(!util.isNullOrUndefined(nextUrl) ||
             !util.isNullOrUndefined(prevUrl)) && ( // Only show pagination if there are more than 5 items
@@ -291,7 +291,6 @@ const TodoApp = () => {
           )}
         </div>
       )}
-      )
     </div>
   );
 };
