@@ -9,9 +9,10 @@ import * as util from "./lib/util";
 import Axios from "./lib/axios";
 import { useAtom } from "jotai";
 import * as atomic from "./lib/atom";
+import { CopyIcon } from "lucide-react"
 
 
-function BitLoader({ code, setCode, loadBit }) {
+function BitLoader({ code, setCode, loadBit, copyBit }) {
   return (
     <div className="flex pt-4 pb-2 space-x-2">
       <Input
@@ -24,6 +25,9 @@ function BitLoader({ code, setCode, loadBit }) {
       />
       <Button variant="secondary" onClick={loadBit}>
         Find or Create new ToDo
+      </Button>
+      <Button variant="secondary" onClick={copyBit}>
+        <CopyIcon className="h-6 w-6" />
       </Button>
     </div>
   );
@@ -140,6 +144,9 @@ const TodoApp = () => {
     }
   };
 
+  const copyBit = () => {
+    navigator.clipboard.writeText(code);
+  }
 
   // A function to toggle the completed status of a todo
   const toggleCompleted = (id) => {
@@ -238,7 +245,7 @@ const TodoApp = () => {
       <h1 className="text-4xl text-white text-center font-bold mb-2">Bit Sharing</h1>
       <p className="text-sm text-center text-gray-50 mb-2">by triplemzim</p>
       <div>
-        <BitLoader code={code} setCode={setCode} loadBit={loadBit} />
+        <BitLoader code={code} setCode={setCode} loadBit={loadBit} copyBit={copyBit} />
       </div>
       {!util.isNullOrUndefined(bit.id) && (
         <div>
